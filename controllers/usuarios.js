@@ -77,12 +77,9 @@ const usuariosDelete = async (req, res = response) => {
 
     const { id } = req.params;
 
-    //Este codigo borra fisicamente un usuario de la Base de datos lo cual es poco recomendablew por la perdida referencial por lo que se opta como mejor opcion cambiarlo de estado
-    // const usuario = await Usuario.findByIdAndDelete( id );
-
     const usuario = await Usuario.findByIdAndUpdate( id,{ estado : false} );
 
-    res.json( usuario);
+    res.json( usuario );
 }
 module.exports = {
     usuariosGet,
